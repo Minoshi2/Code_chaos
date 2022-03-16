@@ -10,10 +10,6 @@ from MAR import MARs
 from HeadPose import getHeadSlantDegree
 import winsound
 
-# initialize dlib's face detector (HOG-based) and then create the
-# facial landmark predictor
-detect = dlib.get_frontal_face_detector()
-predict = dlib.shape_predictor('D:\Head Pose\Head Pose\dlib_shape_predictor\shape_predictor_68_face_landmarks.dat')
 # Permitting the camera to get ready
 print("Starting camera...")
 vs = VideoStream(src=0).start()
@@ -36,10 +32,15 @@ image_coordinates= num.array([
 (leftStart, leftEnd) = face_utils.FACIAL_LANDMARKS_IDXS["left_eye"]
 (rightStart, rightEnd) = face_utils.FACIAL_LANDMARKS_IDXS["right_eye"]
 
-eye_margin = 0.25
+eye_margin = 0.237
 mouth_margin = 0.79
-eye_frames = 2
+eye_frames = 1
 count = 0
+Counter=0
+FinalWarning = 0
+NumberOfWarnings = 2
+sendDriversLocation = 0
+continuingProgram = 0
 
 # capture the values for mouth positioning
 (mStart, mEnd) = (49, 68)
@@ -84,25 +85,6 @@ while True:
         rightHull = cv2.convexHull(rEye)
         cv2.drawContours(frame, [leftHull], -1, (0, 255, 255), 1)
         cv2.drawContours(frame, [rightHull], -1, (0, 255, 255), 1)
-
-        # determine whether the EAR is below the blink
-        # margin, if so, increase the blink counts
-        if ear < eye_margin:
-            count += 1
-            # if the eyes were closed for a satisfactory amount of times, alert the driver
-            if count >= eye_frames:
-                cv2.putText(frame, "Eyes Closed!", (500, 20),
-                            cv2.FONT_HERSHEY_DUPLEX, 0.7, (0, 255, 255), 2)
-                if count >= 6:
-                    cv2.putText(frame, "Drowsiness alert!", (150, 60),
-                                cv2.FONT_HERSHEY_SIMPLEX, 0.7, (0, 255, 255), 2)
-                    winsound.PlaySound('alarm.wav', winsound.SND_FILENAME)
-
-            # else the EAR is not below the blink margin
-            # so reinitialize the alarm and count
-        else:
-            Count = 0
-
         mouth = arr[mStart:mEnd]
 
         mouthMAR = MARs(mouth)
@@ -116,49 +98,76 @@ while True:
 
         # Display a phrase if mouth is open
 
-        if mar > mouth_margin:
-            cv2.putText(frame, "Yawning!", (750, 18),
-                        cv2.FONT_HERSHEY_DUPLEX, 0.7, (0, 255, 255), 2)
+        # determine whether the EAR is below the blink
+        # margin, if so, increase the blink counts
+        cv2.putText(frame, "Eye aspect ratio: {:.2f}".format(ear), (675, 50),
+                    cv2.FONT_HERSHEY_DUPLEX, 0.7, (0, 255, 255), 2)
+        if ear < eye_margin:
+            count += 1
+            # if the eyes were closed for a satisfactory amount of times, alert the driver
+            if count >= eye_frames:
+                cv2.putText(frame, "Eyes Closed!", (520, 20),
+                            cv2.FONT_HERSHEY_DUPLEX, 0.7, (0, 255, 255), 2)
+                if mar > mouth_margin:
 
+                    if count >= 6:
+                        cv2.putText(frame, "", (100, 50),
+                                    cv2.FONT_HERSHEY_SIMPLEX, 0.7, (0, 0, 255), 2)
+
+                else:
+                    if count >= 9:
+                        cv2.putText(frame, "High drowsiness alert!", (100, 50),
+                                    cv2.FONT_HERSHEY_SIMPLEX, 0.7, (0, 0, 255), 2)
+
+                        winsound.PlaySound('alarm.wav', winsound.SND_FILENAME)
+                        FinalWarning += 4
+            # else the EAR is not below the blink margin
+            # so reinitialize the alarm and count
+        else:
+            count = 0
+
+
+        if mar > mouth_margin:
+            Counter+=1
+            cv2.putText(frame, "Yawning!", (820, 65),
+                        cv2.FONT_HERSHEY_DUPLEX, 0.7, (0, 255, 255), 2)
+            if count >= 9:
+                cv2.putText(frame, "Low drowsiness alert!", (100, 50),
+                            cv2.FONT_HERSHEY_SIMPLEX, 0.7, (0, 0, 255), 2)
+                winsound.Beep(500, 1000)
+
+
+        else:
+            Counter=0
         # iterate over the landmarks
         for (i, (x, y)) in enumerate(arr):
             if i == 33:
                 image_coordinates[0] = num.array([x, y], dtype='double')
-                # Display text in blue
                 cv2.circle(frame, (x, y), 1, (0, 255, 255), -1)
-                cv2.putText(frame, str(i + 1), (x - 10, y - 10),
-                            cv2.FONT_HERSHEY_DUPLEX, 0.35, (0, 255, 0), 1)
+
             elif i == 8:
                 image_coordinates[1] = num.array([x, y], dtype='double')
-                # Display text in blue
                 cv2.circle(frame, (x, y), 1, (0, 255, 255), -1)
-                cv2.putText(frame, str(i + 1), (x - 10, y - 10),
-                            cv2.FONT_HERSHEY_DUPLEX, 0.35, (0, 255, 0), 1)
+
             elif i == 36:
                 image_coordinates[2] = num.array([x, y], dtype='double')
                 cv2.circle(frame, (x, y), 1, (0, 255, 255), -1)
-                cv2.putText(frame, str(i + 1), (x - 10, y - 10),
-                            cv2.FONT_HERSHEY_DUPLEX, 0.35, (0, 255, 0), 1)
+
             elif i == 45:
                 image_coordinates[3] = num.array([x, y], dtype='double')
                 cv2.circle(frame, (x, y), 1, (0, 255, 255), -1)
-                cv2.putText(frame, str(i + 1), (x - 10, y - 10),
-                            cv2.FONT_HERSHEY_DUPLEX, 0.35, (0, 255, 0), 1)
+
             elif i == 48:
                 image_coordinates[4] = num.array([x, y], dtype='double')
                 cv2.circle(frame, (x, y), 1, (0, 255, 255), -1)
-                cv2.putText(frame, str(i + 1), (x - 10, y - 10),
-                            cv2.FONT_HERSHEY_DUPLEX, 0.35, (0, 255, 0), 1)
+
             elif i == 54:
                 image_coordinates[5] = num.array([x, y], dtype='double')
                 cv2.circle(frame, (x, y), 1, (0, 255, 255), -1)
-                cv2.putText(frame, str(i + 1), (x - 10, y - 10),
-                            cv2.FONT_HERSHEY_DUPLEX, 0.35, (0, 255, 0), 1)
+
             else:
-                # Other landmarks, display text in red
                 cv2.circle(frame, (x, y), 1, (0, 0, 255), -1)
-                cv2.putText(frame, str(i + 1), (x - 10, y - 10),
-                            cv2.FONT_HERSHEY_DUPLEX, 0.35, (0, 0, 255), 1)
+
 
         # Display the co-ordinates of facial features
         for p in image_coordinates:
