@@ -5,12 +5,17 @@ import 'package:drowsiness_app/utils/constants.dart';
 import 'package:drowsiness_app/utils/util_functions.dart';
 import 'package:flutter/material.dart';
 
-class HomeScreen extends StatelessWidget {
+class HomeScreen extends StatefulWidget {
   const HomeScreen({ Key? key }) : super(key: key);
 
   @override
+  _HomeScreenState createState() => _HomeScreenState();
+}
+
+class _HomeScreenState extends State<HomeScreen> {
+  @override
   Widget build(BuildContext context) {
-    final size =UtillFunction.mediaQuery(context);
+    final size = UtillFunction.mediaQuery(context);
     return Scaffold(
       body: Column(
         children: [
@@ -39,7 +44,9 @@ class HomeScreen extends StatelessWidget {
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
-              SettingSection(),
+              ElevatedButton(
+                onPressed: () {}, 
+                child: CustomText(text: "Click Here",)),
               SettingSection(),
               SettingSection(),
             ],
