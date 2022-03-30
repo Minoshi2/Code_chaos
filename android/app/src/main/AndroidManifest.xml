@@ -3,6 +3,8 @@
    <application
         android:label="drowsiness_app"
         android:icon="@mipmap/ic_launcher">
+        <meta-data android:name="com.google.android.geo.API_KEY"
+               android:value="AIzaSyDIE2Fc95DNO_mJa0driJP5Ibj3JrawhKE"/>
         <activity
             android:name=".MainActivity"
             android:launchMode="singleTop"
