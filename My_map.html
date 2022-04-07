@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<head>    
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    
+        <script>
+            L_NO_TOUCH = false;
+            L_DISABLE_3D = false;
+        </script>
+    
+    <style>html, body {width: 100%;height: 100%;margin: 0;padding: 0;}</style>
+    <style>#map {position:absolute;top:0;bottom:0;right:0;left:0;}</style>
+    <script src="https://cdn.jsdelivr.net/npm/leaflet@1.6.0/dist/leaflet.js"></script>
+    <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.6.0/dist/leaflet.css"/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css"/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/python-visualization/folium/folium/templates/leaflet.awesome.rotate.min.css"/>
+    
+            <meta name="viewport" content="width=device-width,
+                initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+            <style>
+                #map_05ef9efb254b49c197856d64642a8efe {
+                    position: relative;
+                    width: 100.0%;
+                    height: 100.0%;
+                    left: 0.0%;
+                    top: 0.0%;
+                }
+            </style>
+        
+</head>
+<body>    
+    
+            <div class="folium-map" id="map_05ef9efb254b49c197856d64642a8efe" ></div>
+        
+</body>
+<script>    
+    
+            var map_05ef9efb254b49c197856d64642a8efe = L.map(
+                "map_05ef9efb254b49c197856d64642a8efe",
+                {
+                    center: [6.9355, 79.8487],
+                    crs: L.CRS.EPSG3857,
+                    zoom: 16,
+                    zoomControl: true,
+                    preferCanvas: false,
+                }
+            );
+
+            
+
+        
+    
+            var tile_layer_24c3a51dc1344507bcfcc090782d6ae2 = L.tileLayer(
+                "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",
+                {"attribution": "Data by \u0026copy; \u003ca href=\"http://openstreetmap.org\"\u003eOpenStreetMap\u003c/a\u003e, under \u003ca href=\"http://www.openstreetmap.org/copyright\"\u003eODbL\u003c/a\u003e.", "detectRetina": false, "maxNativeZoom": 18, "maxZoom": 18, "minZoom": 0, "noWrap": false, "opacity": 1, "subdomains": "abc", "tms": false}
+            ).addTo(map_05ef9efb254b49c197856d64642a8efe);
+        
+    
+            var circle_marker_59204f2c531245de861e44e0bd1e9c5b = L.circleMarker(
+                [6.9355, 79.8487],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "red", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 30, "stroke": true, "weight": 3}
+            ).addTo(map_05ef9efb254b49c197856d64642a8efe);
+        
+    
+        var popup_80b6a74f602e4888b9b483748e60a730 = L.popup({"maxWidth": "100%"});
+
+        
+            var html_7c2f8c52b22a4c3caa3b4fcdab4b6e2e = $(`<div id="html_7c2f8c52b22a4c3caa3b4fcdab4b6e2e" style="width: 100.0%; height: 100.0%;">My Location</div>`)[0];
+            popup_80b6a74f602e4888b9b483748e60a730.setContent(html_7c2f8c52b22a4c3caa3b4fcdab4b6e2e);
+        
+
+        circle_marker_59204f2c531245de861e44e0bd1e9c5b.bindPopup(popup_80b6a74f602e4888b9b483748e60a730)
+        ;
+
+        
+    
+    
+            var marker_d4e574d1ce50491c9c4a92f028025adc = L.marker(
+                [6.9355, 79.8487],
+                {}
+            ).addTo(map_05ef9efb254b49c197856d64642a8efe);
+        
+    
+        var popup_bf55b1dd16f5484fa77e18777ec7d39a = L.popup({"maxWidth": "100%"});
+
+        
+            var html_e9903ec420af467e9bc4a75b5b8c9ff9 = $(`<div id="html_e9903ec420af467e9bc4a75b5b8c9ff9" style="width: 100.0%; height: 100.0%;">My Location</div>`)[0];
+            popup_bf55b1dd16f5484fa77e18777ec7d39a.setContent(html_e9903ec420af467e9bc4a75b5b8c9ff9);
+        
+
+        marker_d4e574d1ce50491c9c4a92f028025adc.bindPopup(popup_bf55b1dd16f5484fa77e18777ec7d39a)
+        ;
+
+        
+    
+    
+            var marker_b85d9c0cfaef49218688dba14a7f7261 = L.marker(
+                [6.9343415, 79.8441162],
+                {}
+            ).addTo(map_05ef9efb254b49c197856d64642a8efe);
+        
+    
+        var popup_c1ed3528b75547fa86520be01fcb6a82 = L.popup({"maxWidth": "100%"});
+
+        
+            var html_2dd5ed5cc496411bbaccdf56e6090d77 = $(`<div id="html_2dd5ed5cc496411bbaccdf56e6090d77" style="width: 100.0%; height: 100.0%;">Green Cabin Chatham Street</div>`)[0];
+            popup_c1ed3528b75547fa86520be01fcb6a82.setContent(html_2dd5ed5cc496411bbaccdf56e6090d77);
+        
+
+        marker_b85d9c0cfaef49218688dba14a7f7261.bindPopup(popup_c1ed3528b75547fa86520be01fcb6a82)
+        ;
+
+        
+    
+    
+            var marker_99d00c01b57642daa718857bc295dc51 = L.marker(
+                [6.9344683, 79.84366969999999],
+                {}
+            ).addTo(map_05ef9efb254b49c197856d64642a8efe);
+        
+    
+        var popup_df22eff934154130bd5d2e9999f34b09 = L.popup({"maxWidth": "100%"});
+
+        
+            var html_6c6cc7ae4d2944a18a0fb10c79d1d6e9 = $(`<div id="html_6c6cc7ae4d2944a18a0fb10c79d1d6e9" style="width: 100.0%; height: 100.0%;">t-lounge by Dilmah – Chatham Street</div>`)[0];
+            popup_df22eff934154130bd5d2e9999f34b09.setContent(html_6c6cc7ae4d2944a18a0fb10c79d1d6e9);
+        
+
+        marker_99d00c01b57642daa718857bc295dc51.bindPopup(popup_df22eff934154130bd5d2e9999f34b09)
+        ;
+
+        
+    
+    
+            var marker_b503948784ac4a80b6feed41b294ccea = L.marker(
+                [6.933649799999999, 79.8435544],
+                {}
+            ).addTo(map_05ef9efb254b49c197856d64642a8efe);
+        
+    
+        var popup_2ed1e28ea12d47dc9f96aacfd5a00b12 = L.popup({"maxWidth": "100%"});
+
+        
+            var html_5407419086bd42a7a1633cbaa9dc109b = $(`<div id="html_5407419086bd42a7a1633cbaa9dc109b" style="width: 100.0%; height: 100.0%;">Heladiv Tea Club</div>`)[0];
+            popup_2ed1e28ea12d47dc9f96aacfd5a00b12.setContent(html_5407419086bd42a7a1633cbaa9dc109b);
+        
+
+        marker_b503948784ac4a80b6feed41b294ccea.bindPopup(popup_2ed1e28ea12d47dc9f96aacfd5a00b12)
+        ;
+
+        
+    
+    
+            var marker_6cddc2f6de1a40a68d6b4f5e36deb582 = L.marker(
+                [6.938770799999999, 79.8570831],
+                {}
+            ).addTo(map_05ef9efb254b49c197856d64642a8efe);
+        
+    
+        var popup_3a5aed1e9118429db80585626cb7bcd2 = L.popup({"maxWidth": "100%"});
+
+        
+            var html_fbdca1678c6342f2867c7e2e6585d8ae = $(`<div id="html_fbdca1678c6342f2867c7e2e6585d8ae" style="width: 100.0%; height: 100.0%;">The Beans Coffee Factory</div>`)[0];
+            popup_3a5aed1e9118429db80585626cb7bcd2.setContent(html_fbdca1678c6342f2867c7e2e6585d8ae);
+        
+
+        marker_6cddc2f6de1a40a68d6b4f5e36deb582.bindPopup(popup_3a5aed1e9118429db80585626cb7bcd2)
+        ;
+
+        
+    
+    
+            var marker_24f22a7ab63f47318da7740028490e96 = L.marker(
+                [6.934221099999999, 79.8495076],
+                {}
+            ).addTo(map_05ef9efb254b49c197856d64642a8efe);
+        
+    
+        var popup_afb28467a7194551a5dc98bf22ad0053 = L.popup({"maxWidth": "100%"});
+
+        
+            var html_62e6ab8485b640a5bae297203b3badd8 = $(`<div id="html_62e6ab8485b640a5bae297203b3badd8" style="width: 100.0%; height: 100.0%;">Bun Break</div>`)[0];
+            popup_afb28467a7194551a5dc98bf22ad0053.setContent(html_62e6ab8485b640a5bae297203b3badd8);
+        
+
+        marker_24f22a7ab63f47318da7740028490e96.bindPopup(popup_afb28467a7194551a5dc98bf22ad0053)
+        ;
+
+        
+    
+</script>
