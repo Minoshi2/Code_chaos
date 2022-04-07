@@ -119,9 +119,9 @@ class _RegisterPageState extends State<RegisterPage> {
                           text: 'Register', 
                            onTap: () async {
                             if(inputValidation()) {
-                              await AuthController().registerUser(context, _email.text, _password.text);
+                              await AuthController().registerUser(context, _email.text, _password.text, _name.text, _phone.text);
                             }else {   
-                              CustomDialogBox.dialogBox(context, DialogType.ERROR, 'Incorrect information', 'Please enter correct information.');                      }
+                              CustomDialogBox.dialogBox(context: context, dialogType: DialogType.ERROR, title: 'Incorrect information', desc: 'Please enter correct information.');                      }
                           },
                         ),
                       ),

@@ -5,6 +5,7 @@ import 'package:drowsiness_app/components/custom_dialogbox.dart';
 import 'package:drowsiness_app/components/custom_header.dart';
 import 'package:drowsiness_app/components/custom_text.dart';
 import 'package:drowsiness_app/components/custom_textfield.dart';
+import 'package:drowsiness_app/controllers/auth_controller.dart';
 import 'package:drowsiness_app/screens/home_screen/home_screen.dart';
 import 'package:drowsiness_app/screens/register_screen/register_screen.dart';
 import 'package:drowsiness_app/utils/app_color.dart';
@@ -105,21 +106,13 @@ class _LoginPageState extends State<LoginPage> {
                               text: 'Sign In', 
                               onTap: () async {
                                 if(inputValidation()) {
-                                  try {
-                                    UserCredential userCredential = await FirebaseAuth.instance.signInWithEmailAndPassword(
-                                      email: _email.text,
-                                      password: _password.text,
-                                    );
-                                    UtillFunction.navigateTo(context, const HomeScreen());
-                                  } on FirebaseAuthException catch (e) {
-                                    if (e.code == 'user-not-found') {
-                                      CustomDialogBox.dialogBox(context, DialogType.ERROR, 'No user found for that email.', 'Please enter valid email.');                 
-                                    } else if (e.code == 'wrong-password') {
-                                      CustomDialogBox.dialogBox(context, DialogType.ERROR, 'Wrong password provided for that user.', 'Please enter valid password.');               
-                                    }
-                                  }
+                                  AuthController().loginUser(
+                                    context, 
+                                    _email.text,
+                                    _password.text
+                                  );
                                 }else {
-                                  CustomDialogBox.dialogBox(context, DialogType.ERROR, 'Incorrect information', 'Please enter correct information.');                 
+                                  CustomDialogBox.dialogBox(context: context, dialogType: DialogType.ERROR, title: 'Incorrect information', desc: 'Please enter correct information.');                 
                                 }
                               },
                             ),

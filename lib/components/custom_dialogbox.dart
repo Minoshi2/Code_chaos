@@ -4,10 +4,12 @@ import 'package:flutter/cupertino.dart';
 class CustomDialogBox {
 
   static Future<dynamic> dialogBox(
-      BuildContext context, 
-      DialogType dialogType, 
-      String title, 
-      String desc
+    {
+    required BuildContext context, 
+    required DialogType dialogType, 
+    required String title, 
+    required String desc,
+    }
   ) async {
     return AwesomeDialog(
       context: context,
