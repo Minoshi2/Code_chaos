@@ -17,20 +17,20 @@ class _GettingStartedState extends State<GettingStarted> {
   int _current = 0;
   List<Widget> list = [
     SliderItem(
-      img: "money.png", 
-      // img: "popcorn.png", 
-      text1: "Drowsiness App", 
-      text2: "Order anything you want from your\n Favorite restaurant.",
+      img: "driver.png", 
+      text1: "Safety First", 
+      text2: "Our own safety is the best prevention\nfor ourselves from the accident.",
     ), 
     SliderItem(
-      img: "money.png", 
-      text1: "Drowsiness App", 
-      text2: "Payment made easy through debit card\n credit card  & more ways to pay\n for your food",), 
+      img: "drowsy.png", 
+      text1: "No Drowsiness", 
+      text2: "Catch up on your beauty sleep before\ndriving.",
+    ),  
     SliderItem(
-      img: "money.png", 
-      // img: "restaurant.png", 
-      text1: "Drowsiness App", 
-      text2: "Healthy eating means eating a variety\n of foods that give you the nutrients you\n need to maintain your health.",),
+      img: "tracking.png", 
+      text1: "Coffee Shop", 
+      text2: "If you feel drowsy you can go the\nnearest coffee shop.",
+    ),
   ];
   
   @override
@@ -76,7 +76,7 @@ class _GettingStartedState extends State<GettingStarted> {
                     margin: EdgeInsets.symmetric(vertical: 8.0, horizontal: 4.0),
                     decoration: BoxDecoration(
                         shape: BoxShape.circle,
-                        color: _current == entry.key ? primaryColor : greyColor,
+                        color: _current == entry.key ? Colors.blue : greyColor,
                     ),    
                   ),
                 );
