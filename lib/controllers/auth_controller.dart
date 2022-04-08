@@ -84,4 +84,36 @@ class AuthController {
       }
     }
   }
+
+  // Send password reset email function
+  Future<void> sendPasswordResetEmail(BuildContext context, String email) async {
+
+    try {
+      await auth.sendPasswordResetEmail(email: email);
+    } on FirebaseAuthException catch (e) {
+      if (e.code == 'invalid-email') {
+        CustomDialogBox.dialogBox(
+          context: context, 
+          dialogType: DialogType.ERROR, 
+          title: 'Invalid email.', 
+          desc: 'Please enter valid email.'
+        );  
+      }else if (e.code == 'user-not-found') {
+        CustomDialogBox.dialogBox(
+          context: context, 
+          dialogType: DialogType.ERROR, 
+          title: 'No user found for that email.', 
+          desc: 'Please enter valid email.'
+        );
+      }else {
+        CustomDialogBox.dialogBox(
+          context: context, 
+          dialogType: DialogType.ERROR, 
+          title: 'Error', 
+          desc: e.toString(),
+        );
+      }
+    } 
+    catch (e) {}
+  }
 }

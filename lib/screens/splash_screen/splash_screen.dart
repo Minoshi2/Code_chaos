@@ -28,15 +28,7 @@ class _SplashScreenState extends State<SplashScreen> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            // Image.asset(Constants.imageAsset('logo.png')),
-            const SizedBox(height: 8.0,),
-            const Text(
-              'No more Accident',
-              style: TextStyle(
-                fontSize: 16.0,
-                color: Color(0xff838383)
-              ),
-            )
+            Image.asset(Constants.imageAsset('logo.png')),
           ],
         ),
       ),

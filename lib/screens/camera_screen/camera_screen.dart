@@ -76,6 +76,7 @@ class _CameraScreenState extends State<CameraScreen> {
     return Scaffold(
       body: Column(
         children: [
+          SizedBox(height: 40.0,),
           Padding(padding: EdgeInsets.all(20),
             child: Container(
               height: size.height*0.7,

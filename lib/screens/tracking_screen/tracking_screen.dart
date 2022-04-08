@@ -73,7 +73,7 @@ class FooterSection extends StatelessWidget {
                 children: [
                   CustomText(
                     text: 'Time',
-                    fontSize: 18.0,
+                    fontSize: 20.0,
                     fontWeight: FontWeight.w400,
                   ),
                   SizedBox(height: 5.0,),
@@ -89,9 +89,9 @@ class FooterSection extends StatelessWidget {
                     ],
                   ),
                   SizedBox(height: 30.0,),
-                  TrackingDetails(status: 'order confirmed', statusText: 'Your order has been confirmed',),
+                  TrackingDetails(status: 'Get Rest', statusText: 'Rest is the most important thing.',),
                   SizedBox(height: 30.0,),
-                  TrackingDetails(status: 'order confirmed', statusText: 'Your order has been confirmed',),
+                  TrackingDetails(status: 'Coffee Shop', statusText: 'Please go to the nearest Coffee shop.',),
                 ],
               ),
             )
@@ -123,13 +123,13 @@ class TrackingDetails extends StatelessWidget {
           children: [
             CustomText(
               text: status,
-              fontSize: 16,
+              fontSize: 21,
               fontWeight: FontWeight.w600,
             ),
             SizedBox(height: 5.0,),
             CustomText(
               text: statusText,
-              fontSize: 14,
+              fontSize: 17,
               fontWeight: FontWeight.w400,
             ),
           ],

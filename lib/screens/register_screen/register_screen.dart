@@ -35,7 +35,7 @@ class _RegisterPageState extends State<RegisterPage> {
           child: SingleChildScrollView(
             child: Column(
               children: [
-                HeaderSection(size: size, image: 'top.png', header: 'Register', tagline: 'Create Account',),
+                CustomHeader(size: size, image: 'top.png', header: 'Register', tagline: 'Create Account',),
                 Padding(
                   padding: EdgeInsets.symmetric(horizontal: 40.0,),
                   child: Column(

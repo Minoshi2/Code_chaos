@@ -21,7 +21,7 @@ class _HomeScreenState extends State<HomeScreen> {
     return Scaffold(
       body: Column(
         children: [
-          HeaderSection(
+          CustomHeader(
             size: size,
             image: 'top.png',
             widget: Padding(
@@ -43,18 +43,9 @@ class _HomeScreenState extends State<HomeScreen> {
             padding: const EdgeInsets.only(left: 10.0,),
             child: Image.asset(Constants.imageAsset('car.png')),
           ),
-          // Row(
-          //   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-          //   children: [
-          //     ElevatedButton(
-          //       onPressed: () {}, 
-          //       child: CustomText(text: "Click Here",)),
-          //     SettingSection(),
-          //     SettingSection(),
-          //   ],
-          // ),
+          SizedBox(height: 40.0,),
           ApplicationStartSection(img: 'car.png', text: 'Start', tagline: 'Start the application', icon: Icons.car_rental, screen: CameraScreen(),),
-          SizedBox(height: 10.0,),
+          SizedBox(height: 40.0,),
           ApplicationStartSection(img: 'location.png', text: 'Location', tagline: 'Nearest Coffee Shop', icon: Icons.coffee, screen: TrackingScreen(),),
         ],
       ),  
@@ -145,33 +136,3 @@ class ApplicationStartSection extends StatelessWidget {
     );
   }
 }
-
-// class SettingSection extends StatelessWidget {
-//   const SettingSection({
-//     Key? key,
-//   }) : super(key: key);
-
-//   @override
-//   Widget build(BuildContext context) {
-//     return InkWell(
-//       onTap: () {},
-//       child: Column(
-//         children: [
-//           Container(
-//             width: 106.0,
-//             height: 69.0,
-//             padding: EdgeInsets.all(17.0),
-//             decoration: BoxDecoration(
-//               color: korange,
-//               borderRadius: BorderRadius.circular(15.0)
-//             ),
-//             child: Image.asset(Constants.iconAsset('location.png')),
-//           ),
-//           CustomText(
-//             text: 'Drowsiness \n     Level'
-//           ),
-//         ],
-//       ),
-//     );
-//   }
-// }

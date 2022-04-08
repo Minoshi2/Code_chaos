@@ -2,8 +2,8 @@ import 'package:drowsiness_app/utils/app_color.dart';
 import 'package:drowsiness_app/utils/constants.dart';
 import 'package:flutter/material.dart';
 
-class HeaderSection extends StatelessWidget {
-  const HeaderSection({
+class CustomHeader extends StatelessWidget {
+  const CustomHeader({
     Key? key,
     required this.size,
     required this.image,

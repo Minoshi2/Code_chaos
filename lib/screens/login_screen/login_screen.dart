@@ -6,7 +6,7 @@ import 'package:drowsiness_app/components/custom_header.dart';
 import 'package:drowsiness_app/components/custom_text.dart';
 import 'package:drowsiness_app/components/custom_textfield.dart';
 import 'package:drowsiness_app/controllers/auth_controller.dart';
-import 'package:drowsiness_app/screens/home_screen/home_screen.dart';
+import 'package:drowsiness_app/screens/login_screen/forgot_password_screen.dart';
 import 'package:drowsiness_app/screens/register_screen/register_screen.dart';
 import 'package:drowsiness_app/utils/app_color.dart';
 import 'package:drowsiness_app/utils/constants.dart';
@@ -41,11 +41,11 @@ class _LoginPageState extends State<LoginPage> {
           child: SingleChildScrollView(
             child: Column(
               children: [
-                HeaderSection(
-                  size: size, image: 
-                  'top.png', header: 
-                  'Login', tagline: 
-                  'Access Account',
+                CustomHeader(
+                  size: size, 
+                  image: 'top.png',
+                  header: 'Login', 
+                  tagline: 'Access Account',
                 ),
                 Column(
                   children: [
@@ -112,7 +112,12 @@ class _LoginPageState extends State<LoginPage> {
                                     _password.text
                                   );
                                 }else {
-                                  CustomDialogBox.dialogBox(context: context, dialogType: DialogType.ERROR, title: 'Incorrect information', desc: 'Please enter correct information.');                 
+                                  CustomDialogBox.dialogBox(
+                                    context: context, 
+                                    dialogType: DialogType.ERROR, 
+                                    title: 'Incorrect information', 
+                                    desc: 'Please enter correct information.'
+                                  );                 
                                 }
                               },
                             ),
@@ -144,6 +149,20 @@ class _LoginPageState extends State<LoginPage> {
                                 ]      
                               )
                             ),
+                          ),
+                          SizedBox(height: 10.0,),
+                          GestureDetector(
+                            child: Center(
+                              child: Text(
+                                'Forgot password?',
+                                style: TextStyle(
+                                  fontSize: 16.0
+                                ),
+                              ),
+                            ),
+                            onTap: () {
+                              UtillFunction.navigateTo(context, ForgotPasswordPage());
+                            },
                           )
                         ],
                       ),

@@ -1,6 +1,9 @@
 import 'package:camera/camera.dart';
 import 'package:drowsiness_app/screens/camera_screen/camera_screen.dart';
 import 'package:drowsiness_app/screens/home_screen/home_screen.dart';
+import 'package:drowsiness_app/screens/login_screen/forgot_password_screen.dart';
+import 'package:drowsiness_app/screens/login_screen/login_screen.dart';
+import 'package:drowsiness_app/screens/splash_screen/getting_started.dart';
 import 'package:drowsiness_app/screens/splash_screen/splash_screen.dart';
 import 'package:drowsiness_app/screens/tracking_screen/tracking_screen.dart';
 import 'package:firebase_core/firebase_core.dart';
@@ -26,7 +29,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: const SplashScreen(),
+      home: GettingStarted(),
       builder: (context, widget) => ResponsiveWrapper.builder(
           widget,
           maxWidth: 1200,

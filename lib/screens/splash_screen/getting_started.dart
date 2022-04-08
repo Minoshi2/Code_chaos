@@ -38,8 +38,6 @@ class _GettingStartedState extends State<GettingStarted> {
     var size = UtillFunction.mediaQuery(context);
     return Scaffold(
       body: Container(
-        // width: size.width,
-        // height: size.height,
         child: Column(
           mainAxisAlignment: MainAxisAlignment.end,
           children: [
@@ -76,7 +74,7 @@ class _GettingStartedState extends State<GettingStarted> {
                     margin: EdgeInsets.symmetric(vertical: 8.0, horizontal: 4.0),
                     decoration: BoxDecoration(
                         shape: BoxShape.circle,
-                        color: _current == entry.key ? Colors.blue : greyColor,
+                        color: _current == entry.key ? primaryColor : greyColor,
                     ),    
                   ),
                 );
@@ -114,15 +112,15 @@ class SliderItem extends StatelessWidget {
         Text(
           text1,
           style: TextStyle(
-            fontSize: 22.0,
+            fontSize: 25.0,
           ),
         ),
-        SizedBox(height: 5.0,),
+        SizedBox(height: 10.0,),
         Text(
           text2,
           textAlign: TextAlign.center,
           style: TextStyle(
-            fontSize: 14.0,
+            fontSize: 16.0,
             color: greyColor,
           ),
         )
